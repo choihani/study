@@ -3,38 +3,79 @@
 man(Manual) : 메뉴를 볼수 있음
 	man man
 	man clear
+
 clear
+
 pwd(Print Working Directory) :현재경로
+
 ls(List) 현재경로에 어떤 폴더와 파일이 있는지
 	ls -l : 파일이름, 사이즈 수정날짜, 파일 소유자 등등
-  ls -a : 숨긴파일을 볼수 있음
-  ls -al
+	ls -a : 숨긴파일을 볼수 있음
+	ls -al
+
 open . : 현재 위치 폴더를 열어줌
+
 cd(Change Directory)
-  cd dir : 해당 폴더로 이동
-  cd . : 현재경로
-  cd .. : 상위경로
-  cd ~ : 홈디렉토리로 이동
-  cd - : 현재경로로 오기 바로 직전 경로로 이동
+	cd dir : 해당 폴더로 이동
+	cd . : 현재경로
+	cd .. : 상위경로
+	cd ~ : 홈디렉토리로 이동
+	cd - : 현재경로로 오기 바로 직전 경로로 이동
+
 find 
-  find . -type file -name "*.txt" : 현재경로와 그 하위에 있는 .txt 파일 찾기
-  find . -type directory -name "*2"
+	find . -type file -name "*.txt" : 현재경로와 그 하위에 있는 .txt 파일 찾기
+	find . -type directory -name "*2"
+
 which : 내가 실행하고자 하는 프로그램이 어디서 설치되어있는지, 어디에서 실행하는지
-  which node
-  which code
+	which node
+	which code
 
 touch : 새로운 파일생성 (기존에 파일이 존재한다면 수정날짜가 touch한 날짜로 바뀜)
-  touch new_file.txt
+	touch new_file.txt
+
 cat : 파일안에 있는 내용들을 빠르게 확인 가능
-  cat new_file.txt
-  cat new_file1.txt cat new_file2.txt : 모든파일의 컨텐츠를 한번에 확인 가능
+	cat new_file.txt
+	cat new_file1.txt cat new_file2.txt : 모든파일의 컨텐츠를 한번에 확인 가능
+
 echo
-  echo "hello world"
-    >hello world
-  
+	echo "hello world"
+	  >hello world
+	echo "hello world" > new_file3.txt : echo 옆에 문자열을 새로운 파일에 컨텐츠로 만들어줌. 화살표 하나일때는 덮어쓰기가 됨.
+	echo "hello world!!!" >> new_file3.txt : append됨
 
+mkdir(make directory)
+	mkdir -p dir4/subdir1/subdir2
 
+cp(copy)
+	cp file1.txt dir1/ : file1.txt이 dir1폴더로 복사
+mv(move)
+	mv file2.txt dir1/ : 이동
+	mv file1.txt mv file2.txt
 
+rm(remove)
+	rm file.txt
+	rm rm -r dir2 : 폴더를 삭제할때 그안에 존재하는 폴더들도 삭제 가능
 
+grep(Global regular expression print) : 키워드로 검색
+	grep "workd" *.txt
+	grep -n "workd" *.txt : 몇번째 줄에 있는지도 검색
+	grep -ni "workd" *.txt : 대소문자 상관없이 검색
+	grep -nir "workd" . : 현재경로와 그하위에 있는 서브폴더에서 검색
 
+환경변수 설정하기
+export MY_DIR="dir1"
 
+env : 환경설정 보기
+
+cd $MY_DIR : 환경변수로 등록해놓은것은 $로 바로 검색할수 있다.
+
+unset MY_DIR : 지정된 환경변수 삭제
+
+에디터 모드
+vi/vim
+	i : insert모드
+	Esc : 모드 나가기 + : + w(write change 저장하기)q(quit 끄기)!(강제)
+	:q : 그냥 종료
+	:wq : 저장하고 종료
+	:q! : 저장안하고 강제 종료
+	Sfiht + ; : 
